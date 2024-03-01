@@ -1,0 +1,15 @@
+<button class="btn btn--primary" aria-controls="dialog-sticky">Open Dialog</button>
+
+<div id="dialog-sticky" class="dialog dialog--sticky js-dialog" data-animation="on">
+  <div class="dialog__content max-width-xxs" role="alertdialog" aria-labelledby="dialog-sticky-title" aria-describedby="dialog-sticky-description">
+    <h4 id="dialog-sticky-title" class="text-md margin-bottom-xxs">Are you sure you want to permanently delete this file?</h4>
+    <p id="dialog-sticky-description" class="text-sm color-contrast-medium">This action cannot be undone.</p>
+
+    <footer class="margin-top-md">
+      <div class="flex justify-end gap-xs flex-wrap">
+        <button class="btn btn--subtle js-dialog__close">Cancel</button>
+        <button class="btn btn--accent">Delete</button>
+      </div>
+    </footer>
+  </div>
+</div>

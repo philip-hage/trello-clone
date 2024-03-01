@@ -1,0 +1,33 @@
+<button class="btn btn--primary" aria-controls="modal-name-2">Show modal window</button>
+
+<div id="modal-name-2" class="modal modal--animate-translate-up flex flex-center bg-black bg-opacity-90% padding-md js-modal">
+  <div class="modal__content width-100% max-width-xs max-height-100% overflow-auto bg radius-md inner-glow shadow-md" role="alertdialog" aria-labelledby="modal-title-2" aria-describedby="modal-description-2">
+    <header class="bg-contrast-lower bg-opacity-50% padding-y-sm padding-x-md flex items-center justify-between">
+      <h1 id="modal-title-2" class="text-truncate text-md">Modal title</h1>
+
+      <button class="reset modal__close-btn modal__close-btn--inner js-modal__close js-tab-focus">
+        <svg class="icon icon--xs" viewBox="0 0 16 16">
+          <title>Close modal window</title>
+          <g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+            <line x1="13.5" y1="2.5" x2="2.5" y2="13.5"></line>
+            <line x1="2.5" y1="2.5" x2="13.5" y2="13.5"></line>
+          </g>
+        </svg>
+      </button>
+    </header>
+
+    <div class="padding-y-sm padding-x-md">
+      <div class="text-component">
+        <p id="modal-description-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae culpa, inventore alias ab atque similique quod ea reprehenderit.</p>
+      </div>
+    </div>
+
+    <footer class="padding-md">
+      <div class="flex justify-end gap-xs">
+        <button class="btn btn--subtle js-modal__close">Cancel</button>
+        <button class="btn btn--primary">Install</button>
+      </div>
+    </footer>
+  </div>
+
+</div>

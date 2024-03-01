@@ -1,0 +1,46 @@
+@use '../base' as *;
+@use '_1_accordion.scss' as *;
+@use '_1_custom-select.scss' as *;
+@use '_1_filter.scss' as *;
+@use '_1_number-input.scss' as *;
+@use '_1_radios-checkboxes.scss' as *;
+@use '_1_read-more.scss' as *;
+@use '_1_responsive-sidebar.scss' as *;
+@use '_1_search-input.scss' as *;
+@use '_1_slider.scss' as *;
+@use '_2_slider-multi-value.scss' as *;
+
+/* -------------------------------- 
+
+File#: _3_advanced-filter
+Title: Advanced Filter
+Descr: A filter panel template
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.adv-filter {
+  .sidebar--static {
+    /* static variation -> sidebar is always visible (optimized for bigger screens) */
+    width: 320px;
+    flex-grow: 0;
+  }
+
+  .accordion {
+    --accordion-icon-size: 16px;
+    --accordion-icon-stroke-width: 2.5; /* arrow icon stroke width */
+  }
+
+  .slider {
+    --slider-width: 80%;
+  }
+}
+
+@include breakpoint(md) {
+  .adv-filter__checkbox-list,
+  .adv-filter__radio-list {
+    font-size: var(--text-sm);
+    --checkbox-radio-size: 1.25em;
+    --checkbox-radio-translate-y: 0.25em; /* edit to align buttons with labels */
+  }
+}

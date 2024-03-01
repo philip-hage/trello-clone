@@ -1,0 +1,87 @@
+.card-v2 {
+  width: 400px;
+  height: 250px;
+}
+
+
+.createBoard {
+  width: 400px;
+  height: 250px;
+}
+
+.workspace-users-options-item {
+  background-color: hsl(241, 84%, 68%);
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #172b4d;
+  display: inline-block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  padding: 6px 12px 6px 6px;
+  position: relative;
+  text-decoration: none;
+}
+
+.workspace-container {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.workspace-headers {
+  display: flex;
+  justify-content: space-between;
+}
+
+.members {
+  border-top: 1px solid #091e4224;
+}
+
+.member-list-item-detail {
+  border-bottom: 1px solid #091e4224;
+  display: flex;
+  min-height: 40px;
+  padding: 12px 0;
+  position: relative;
+}
+
+.member-list-item-detail .details {
+  flex-grow: 1;
+  margin-left: 8px;
+}
+
+.user-username {
+  color: #44546f;
+  margin: 0 0 8px;
+}
+
+.u-inline-block {
+  display: inline-block;
+}
+
+.member-list-item-detail .options {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.member-list-item-detail .name-line {
+  margin-bottom: 0;
+  word-break: break-word;
+  margin: 0 0 8px;
+}
+
+.boards-container {
+  overflow: auto;
+}
+
+.text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.logo-header {
+  text-decoration: none;
+}

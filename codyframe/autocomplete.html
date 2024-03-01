@@ -1,0 +1,22 @@
+<div class="autocomplete position-relative  js-autocomplete" data-autocomplete-dropdown-visible-class="autocomplete--results-visible">
+  <label class="form-label margin-bottom-xxs" for="autocomplete-input">Start typing Sam:</label>
+
+  <div class="position-relative">
+    <input class="form-control width-100% js-autocomplete__input" type="text" name="autocomplete-input" id="autocomplete-input" placeholder="Sam" autocomplete="off">
+
+    <div class="autocomplete__loader position-absolute top-0 right-0 padding-right-sm height-100% flex items-center" aria-hidden="true">
+      <div class="circle-loader circle-loader--v1">
+        <div class="circle-loader__circle"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- dropdown -->
+  <div class="autocomplete__results  js-autocomplete__results">
+    <ul id="autocomplete1" class="autocomplete__list js-autocomplete__list">
+      <li class="autocomplete__item padding-y-xs padding-x-sm text-truncate js-autocomplete__item is-hidden"></li>
+    </ul>
+  </div>
+
+  <p class="sr-only" aria-live="polite" aria-atomic="true"><span class="js-autocomplete__aria-results">0</span> results found.</p>
+</div>

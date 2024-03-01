@@ -1,0 +1,307 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_emoji-feedback
+Title: Emoji Feedback
+Descr: A feedback collection system based on emoticons
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --emoji-rate-size: 40px;
+}
+
+.emoji-rate {}
+
+.emoji-rate__list {
+  > * {
+    position: relative;
+  }
+}
+
+.emoji-rate__custom-input {
+  position: relative;
+
+  display: block;
+  font-size: var(--emoji-rate-size);
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition: transform .3s var(--ease-out-back);
+}
+
+.emoji-rate__icon {
+  display: block;
+  width: inherit;
+  height: inherit;
+
+  transition: color .3s;
+
+  * {
+    transition: fill, stroke;
+    transition-duration: .3s;
+  }
+}
+
+.emoji-rate__hand-icon {
+  display: block;
+  font-size: var(--emoji-rate-size);
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  pointer-events: none;
+  transition: transform .3s;
+}
+
+#emoji-rate-partially-hand {
+  opacity: 0;
+}
+
+.emoji-rate__native-input {
+  + .emoji-rate__custom-input--no .emoji-rate__icon {
+    #emoji-rate-no-eyes {
+      transform: translateY(0) translateX(0);
+    }
+
+    #emoji-rate-no-mouth {
+      transform: translateY(0) translateX(0);
+    }
+  }
+
+  + .emoji-rate__custom-input--yes .emoji-rate__icon {
+    #emoji-rate-yes-eyes {
+      transform: translateY(0) scale(1);
+    }
+
+    #emoji-rate-yes-mouth {
+      transform-origin: 50% 70%;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  + .emoji-rate__custom-input--partially .emoji-rate__icon {
+    #emoji-rate-partially-eyes {
+      transform-origin: 20px 19.5px;
+      transform: translateY(0) scaleY(1);
+    }
+
+    #emoji-rate-partially-mouth {
+      transform-origin: 20px 28px;
+      transform: translateY(0) scaleX(1);
+    }
+  }
+
+  ~ .emoji-rate__hand-icon {
+    #emoji-rate-partially-hand {
+      transform-origin: 7px 35px;
+      opacity: 0;
+      transform: translateX(0);
+    }
+  }
+}
+
+.emoji-rate__native-input:checked {
+  + .emoji-rate__custom-input,
+  ~ .emoji-rate__hand-icon {
+    transform: scale(1.1);
+  }
+
+  + .emoji-rate__custom-input--no .emoji-rate__icon {
+    color: var(--color-black);
+
+    #emoji-rate-no-bg {
+      fill: var(--color-error-light);
+    }
+
+    #emoji-rate-no-eyes {
+      animation: emoji-rate-no-eyes-anim 1.6s;
+    }
+
+    #emoji-rate-no-mouth {
+      animation: emoji-rate-no-mouth-anim 1.6s;
+    }
+  }
+
+  + .emoji-rate__custom-input--yes .emoji-rate__icon {
+    color: var(--color-black);
+
+    #emoji-rate-yes-bg {
+      fill: var(--color-warning);
+    }
+
+    #emoji-rate-yes-eyes {
+      animation: emoji-rate-yes-eyes-anim 1.6s;
+    }
+
+    #emoji-rate-yes-mouth {
+      transform-origin: 50% 70%;
+      animation: emoji-rate-yes-mouth-anim 1.6s;
+    }
+
+    #emoji-rate-yes-tongue {
+      fill: var(--color-error);
+    }
+  }
+
+  + .emoji-rate__custom-input--partially .emoji-rate__icon {
+    color: var(--color-black);
+
+    #emoji-rate-partially-bg {
+      fill: var(--color-warning);
+    }
+
+    #emoji-rate-partially-eyes {
+      animation: emoji-rate-partially-eyes-anim 1.6s;
+    }
+
+    #emoji-rate-partially-mouth {
+      animation: emoji-rate-partially-mouth-anim 1.6s;
+    }
+  }
+
+  ~ .emoji-rate__hand-icon {
+    #emoji-rate-partially-hand {
+      animation: emoji-rate-partially-hand-anim 1.6s;
+    }
+  }
+}
+
+.emoji-rate__native-input:focus {
+  + .emoji-rate__custom-input {
+    box-shadow: 0 0 0 3px alpha(var(--color-warning), 0.3);
+  }
+
+  + .emoji-rate__custom-input--no {
+    box-shadow: 0 0 0 3px alpha(var(--color-error), 0.25);
+  }
+}
+
+.emoji-rate__native-input:focus:not(:focus-visible) {
+  + .emoji-rate__custom-input {
+    box-shadow: none !important;
+  }
+}
+
+@keyframes emoji-rate-no-eyes-anim {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  30%, 40% {
+    transform: translateY(4px) translateX(0);
+  }
+
+  50% {
+    transform: translateY(4px) translateX(-4px);
+  }
+
+  60% {
+    transform: translateY(4px) translateX(4px);
+  }
+
+  70% {
+    transform: translateY(4px) translateX(0px);
+  }
+}
+
+@keyframes emoji-rate-no-mouth-anim {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  30%, 40% {
+    transform: translateY(2.5px) translateX(0);
+  }
+
+  50% {
+    transform: translateY(2.5px) translateX(-2.5px);
+  }
+
+  60% {
+    transform: translateY(2.5px) translateX(2.5px);
+  }
+
+  70% {
+    transform: translateY(2.5px) translateX(0px);
+  }
+}
+
+@keyframes emoji-rate-yes-mouth-anim {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+
+  30%, 40% {
+    transform: translateY(-2.5px) scale(1.2);
+  }
+
+  55% {
+    transform: translateY(0) scale(1.2);
+  }
+
+  70% {
+    transform: translateY(-2.5px) scale(1.2);
+  }
+}
+
+@keyframes emoji-rate-yes-eyes-anim {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  30%, 40% {
+    transform: translateY(-2.5px);
+  }
+
+  55% {
+    transform: translateY(0);
+  }
+
+  70% {
+    transform: translateY(-2.5px);
+  }
+}
+
+@keyframes emoji-rate-partially-eyes-anim {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+
+  30%, 40%, 60%, 70% {
+    transform: translateY(-2px) scaleY(1);
+  }
+
+  50% {
+    transform: translateY(-2px) scaleY(0.1);
+  }
+}
+
+@keyframes emoji-rate-partially-mouth-anim {
+  0%, 100% {
+    transform: translateY(0) scaleX(1);
+  }
+
+  30%, 70% {
+    transform: translateY(-4px) scaleX(0.6);
+  }
+}
+
+@keyframes emoji-rate-partially-hand-anim {
+  0%, 100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  30%, 70% {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+}

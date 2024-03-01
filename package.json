@@ -1,0 +1,41 @@
+{
+  "name": "codyhouse-template",
+  "version": "1.0.0",
+  "description": "codyhouse-template",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp build && php -S localhost:0008",
+    "gulp": "gulp",
+    "build": "gulp build",
+    "compile:static": "gulp build",
+    "server": "php -S localhost:0008",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.4.3",
+    "browser-sync": "^2.26.3",
+    "codyhouse-framework": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-if": "^3.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-purgecss": "^3.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sass-glob": "git+https://github.com/CodyHouse/gulp-sass-glob",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.37.5",
+    "sass-embedded": "^1.0.0-beta.4"
+  },
+  "homepage": "https://codyhouse.co",
+  "license": "ISC",
+  "dependencies": {
+    "codyframe": "^4.0.1",
+    "dragula": "^3.7.3",
+    "gulp-promise": "^1.0.2",
+    "merge-stream": "^2.0.0",
+    "through2": "^4.0.2"
+  }
+}

@@ -1,0 +1,121 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_number-input
+Title: Number input
+Descr: Number input field with custom increment buttons
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.number-input__btn { // hide custom increment buttons if js is disabled
+  display: none;
+}
+
+.number-input { // basic style
+  .form-control::-webkit-inner-spin-button, 
+  .form-control::-webkit-outer-spin-button { // hide native increment on webkit
+    display: none;
+  }
+
+  .form-control { // hide native increment on Firefox 
+    -moz-appearance: textfield;
+    display: block;
+  }
+}
+
+.number-input__btn { // custom increment buttons 
+  display: flex;
+  background: var(--color-contrast-lower);
+
+  &:hover {
+    background-color: var(--color-contrast-low);
+  }
+
+  &:focus {
+    outline: none;
+    background-color: var(--color-primary);
+
+    .icon {
+      color: var(--color-white);
+    }
+  }
+
+  &:active {
+    background-color: lightness(var(--color-primary), 0.9);
+  }
+
+  .icon {
+    --size: var(--number-input-icon-size, 12px);
+    display: block;
+    margin: auto;
+  }
+}
+
+// default - custom increment buttons inside input
+.number-input--v1 {
+  --number-input-btn-width: 1.75em; // button width
+  --number-input-btn-gap: 4px; // gap between two buttons
+  --number-input-btn-input-gap: var(--space-xxxs); // gap between buttons and form control
+  --number-input-icon-size: 8px; // icon size
+
+  position: relative;
+
+  .form-control {
+    padding-right: calc(var(--number-input-btn-width) + var(--number-input-btn-input-gap) * 2);
+    width: 100%;
+    height: 100%;
+  }
+
+  .number-input__btns {
+    position: absolute;
+    top: var(--number-input-btn-input-gap);
+    right: var(--number-input-btn-input-gap);
+    width: var(--number-input-btn-width);
+    height: calc(100% - var(--number-input-btn-input-gap) * 2);
+  }
+
+  .number-input__btn {
+    position: absolute;
+    width: 100%;
+    height: calc(50% - var(--number-input-btn-gap) / 2);
+    border-radius: var(--radius-sm);
+
+    &.number-input__btn--plus {
+      top: 0;
+    }
+
+    &.number-input__btn--minus {
+      bottom: 0;
+    }
+  }
+}
+
+// --v2 - custom increment w/ buttons outside input element
+.number-input--v2 {
+  --number-input-btn-width: 1.6em; // button width
+  --number-input-btn-input-gap: var(--space-xxxs); // gap between buttons and form control
+  --number-input-icon-size: 12px; // icon size
+
+  display: flex;
+  align-items: center;
+
+  .form-control {
+    margin: 0 var(--number-input-btn-input-gap);
+    order: 1;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .number-input__btn {
+    width: var(--number-input-btn-width);
+    height: var(--number-input-btn-width);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .number-input__btn--plus {
+    order: 2;
+  }
+}
